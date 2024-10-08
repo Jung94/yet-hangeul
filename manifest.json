@@ -1,0 +1,10 @@
+{
+  "name": "옛한글 입력기",
+  "description": "옛한글 입력기 확장 프로그램",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "hello_extensions.png"
+  }
+}
