@@ -34,15 +34,15 @@
 
 **/
 
-var default_En_type = 'QWERTY';
-var default_Ko_type = 'Sin3-P2';
-var default_ohi_KBD_type = 'QWERTY';
-var default_ohi_KE = 'Ko';
+let default_En_type = 'QWERTY';
+let default_Ko_type = '2-KSX5002';
+let default_ohi_KBD_type = 'QWERTY';
+let default_ohi_KE = 'Ko';
 
-var En_type; // 영문 자판 종류 (ohiChange 함수로 바꿈)
-var Ko_type; // 한글 자판 종류 (ohiChange 함수로 바꿈)
-var ohi_KBD_type; // 기준 자판 종류 (QWERTY/QWERTZ/AZERTY, ohiChange_KBD_type 함수로 바꿈)
-var ohi_KE; // 한글·영문 상태 (Ko: 한글, En: 영문) (ohiChange_KE 함수로 바꿈)
+let En_type = 'QWERTY'; // 영문 자판 종류 (ohiChange 함수로 바꿈)
+let Ko_type = '2-KSX5002'; // 한글 자판 종류 (ohiChange 함수로 바꿈)
+let ohi_KBD_type = 'QWERTY'; // 기준 자판 종류 (QWERTY/QWERTZ/AZERTY, ohiChange_KBD_type 함수로 바꿈)
+let ohi_KE = 'Ko'; // 한글·영문 상태 (Ko: 한글, En: 영문) (ohiChange_KE 함수로 바꿈)
 
 function option() {
 	var enable_double_final_ext; // 겹받침 확장 배열 쓰기 --> ohiChange_enable_double_final_ext() 함수로 값을 바꿈
@@ -3641,8 +3641,10 @@ function ohiStart() {
 			show_NCR_text();
 			show_direct_typing_text();
 		}
+	} else {
+		// ohiStart()
+		ohiTimeout = setTimeout("ohiStart()", 100);
 	}
-	else ohiTimeout = setTimeout("ohiStart()", 100);
 }
 
 function show_keyboard_layout_info() {
@@ -3969,6 +3971,7 @@ function ohiKeyswap(e, key) {
 
 	while (swaped[i] && swaped[i] != key) i += 2;
 	if (i != swaped.length) key = swaped[i + 1];
+	// console.log(KE, En_type) // Ko QWERTY
 	if (KE != 'En' || En_type != 'QWERTY') {
 		// 영문 쿼티 자판이 아니면 Caps Lock이 적용되지 않게 함
 		if (key > 64 && key < 91 && !e.shiftKey) key += 32;

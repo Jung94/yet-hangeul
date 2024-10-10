@@ -1,21 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<title>온라인 옛한글 입력기 (Online Yet-Hangeul IME)</title>
+	<meta charset="UTF-8" />
+	<meta content="text/html; charset=UTF-8" />
 	<meta name="Description" content="Mac 호환이 가능한 2벌식 옛한글 입력기" />
 	<meta name="Keywords" content="YetHangeul, Hangeul, Hangul, Korean, IME, 옛한글 자판, 한글 자판, 영문 자판, 두벌식 자판, 타자기" />
-	<script>
-		Ko_type = '2-KSX5002';  // 한글 자판
-		En_type = 'QWERTY';  // 영문 자판
-		ohi_KBD_type = 'QWERTY';  // 기준 자판 (QWERTY, QWERTZ, AZERTY)
-		ohi_KE = 'Ko';  // 한·영 상태 (한글: Ko, 영문: En)
-	</script>
+	<title>온라인 옛한글 입력기 (Online Yet-Hangeul IME)</title>
 	<script src="keyboard_layouts.js"></script>
 	<script src="additional_layouts.js"></script>
-	<script src="ohi.js"></script>
+	<!-- <script src="ohi.js"></script> -->
 
-	<script>
+	<!-- <script>
 		function appendChild(parentNode,nodeName,className,idName,innerHTML,width,padding) {
 			var childNode = document.createElement(nodeName);
 				if(className) childNode.className = className;
@@ -26,14 +21,14 @@
 				parentNode.appendChild(childNode);
 				return childNode;
 		}
-	</script>
+	</script> -->
 
 	<style>
 		* { box-sizing: border-box; }
 		html, body { margin: 0; padding: 0; font-family: '나눔바른고딕 옛한글'; font-size: 0.875rem; }
-		div.container { width: 40rem; height: 100vh; background-color: #f4f4f4; }
+		div.container { width: 43rem; height: 100vh; }
 		div.content { border:solid 1px none; padding: 1rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; }
-		textarea { all: unset; width: 100%; padding: 0.75rem; font-size: 1rem; box-sizing: border-box; border-radius: 0.375rem; background-color: #fffefe; }
+		textarea { all: unset; width: 100%; padding: 0.75rem; font-size: 1rem; box-sizing: border-box; border-radius: 0.375rem; background-color: #f4f4f4; }
 		textarea::placeholder { color: rgba(0, 0, 0, 0.5); }
 		form { margin: 0; padding: 0; }
 
@@ -62,9 +57,9 @@
 
 		div.e1, div.e2, div.e3, div.h1, div.h2, div.h3 {
 			display:inline-block; font-size:12px; vertical-align:bottom; height:38px; cursor:pointer;
-			margin: 1.5px; border:1px solid rgba(0, 0, 0, 0.15); border-radius: 3px;
+			margin: 1.5px; border-radius: 3px;
 		}
-		div.e1 { background-color:transparent; }
+		div.e1 { background-color:#f4f4f4; }
 		div.e2 { background-color:#C5D2E7; }
 		div.e3 { background-color:antiquewhite; }
 		div.h1 { background-color:#FFE898; }
@@ -75,7 +70,7 @@
 		div.e1:active, div.e2:active, div.e3:active, div.h1:active, div.h2:active, div.h3:active { 
 			border-style:solid; border-width:2px; border-color:#aaa #fff #fff #aaa;
 		}
-		div.pressed { background-color: white; }
+		div.pressed { background-color: white; border:1px solid rgba(0, 0, 0, 0.15); }
 		div.up, div.down { height: 18px; }
 		div.up { padding: 2px 3px; }
 		div.down { padding: 2px 3px; }
@@ -94,17 +89,19 @@
 	</style>
 </head>
 
-<body onload="show_keyboard_layout(1); inputText_focus();">
+<!-- <body onload="show_keyboard_layout(1); inputText_focus();"> -->
+<body>
 	<div class="container">
 		<div class="content">
 			<textarea id="inputText" placeholder="아름다운 옛한글을 입력해 주세요" rows="15"></textarea>
 			<div id="keyboardLayout"></div>
 		</div>
 
-		<div class="credit">
+		<!-- <div class="credit">
 			<a href="http://ohi.pat.im/org" target="_blank">OHI original version</a> was created by Ho-Seok Ee &lt;hsee@korea.ac.kr&gt;.<br />
 			This version was modified by Pat-Al &lt;pat@pat.im&gt; (<a href="https://pat.im/910" target="_blank">https://pat.im/910</a>).<br />
-		</div>
+		</div> -->
 	</div>
+	<script src="scripts/content.js"></script>
 </body>
 </html>
